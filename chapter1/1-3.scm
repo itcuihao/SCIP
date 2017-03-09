@@ -1,0 +1,17 @@
+(define (square x) (* x x))
+(define (sum-of-squares x y)
+  (+ (square x) (square y)))
+(define (bigsum a b c) 
+  (cond ((and (> a b) (> b c)) (sum-of-squares a b)) 
+        ((and (> a b) (> c b)) (sum-of-squares a c)) 
+        ((and (> b a) (> c a)) (sum-of-squares b c)) 
+        ((and (> b a) (> a c)) (sum-of-squares b a))
+        )
+  )
+(bigsum 1 2 3)
+
+(define (ifbigsum a b c)
+  (sum-of-squares (if (> a b) a b) (if (> b c) b c))
+  )
+(ifbigsum 1 2 3)
+
